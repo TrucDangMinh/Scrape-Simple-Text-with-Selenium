@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common import options
+import time
 
 def get_driver():
   #Set options to make browsing easier
@@ -17,8 +18,12 @@ def get_driver():
 
 def main():
   driver = get_driver()
-  #Điền link xpath vào value
-  element = driver.find_element(by="xpath", value="/html/body/div[1]/div/h1[1]")
+  
+  #Thời gian chờ để sang trang và lấy text + Dynamic value
+  time.sleep(2)
+  
+  #Điền link xpath vào value, dùng copy full xpath
+  element = driver.find_element(by="xpath", value="/html/body/div[1]/div/h1[2]")
   return element.text
 
 print(main())
