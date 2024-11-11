@@ -16,6 +16,11 @@ def get_driver():
   driver.get("http://automated.pythonanywhere.com")
   return driver
 
+def clean_text(text):
+  #Tách text và số từ text
+  output = float(text.split(": ")[1])
+  return output
+
 def main():
   driver = get_driver()
   
@@ -24,6 +29,6 @@ def main():
   
   #Điền link xpath vào value, dùng copy full xpath
   element = driver.find_element(by="xpath", value="/html/body/div[1]/div/h1[2]")
-  return element.text
+  return clean_text(element.text)
 
 print(main())
